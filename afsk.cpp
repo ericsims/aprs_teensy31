@@ -26,7 +26,7 @@
 // All of the calculations are done in the precompiler in float point, and then
 // converted to fixed point at the end (scaled up by FIXED_PNT_SCALE)
 
-#define APRS_INTERRUPT_PRIORITY 150;
+#define APRS_INTERRUPT_PRIORITY 150
 
 #define SAMPLES_PER_CYCLE 512 // How many samples in our sin-wave table
 
