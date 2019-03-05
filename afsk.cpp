@@ -26,6 +26,8 @@
 // All of the calculations are done in the precompiler in float point, and then
 // converted to fixed point at the end (scaled up by FIXED_PNT_SCALE)
 
+#define APRS_INTERRUPT_PRIORITY 150;
+
 #define SAMPLES_PER_CYCLE 512 // How many samples in our sin-wave table
 
 #define INTERRUPT_RATE 8  // in Microseconds
@@ -246,6 +248,7 @@ void interrupt(void)
 void afsk_timer_start()
 {
   timer.begin(interrupt, INTERRUPT_RATE);
+  timer.priority(APRS_INTERRUPT_PRIORITY);
 }
 
 void afsk_setup(const uint8_t p_pttPin, // Use PTT pin, 0 = do not use PTT
